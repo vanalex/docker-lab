@@ -1,0 +1,1 @@
+module github.com/vanalex/infrastructure-examples/docker/hello
