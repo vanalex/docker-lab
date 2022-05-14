@@ -1,3 +1,3 @@
-# infrastructure-examples
+# docker lab
 
-Examples of infrastructure as code
+Examples of docker
