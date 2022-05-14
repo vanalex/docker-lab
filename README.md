@@ -1,3 +1,1 @@
-# docker lab
-
-Examples of docker
+### Folder with docker examples.
