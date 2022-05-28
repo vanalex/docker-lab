@@ -11,6 +11,8 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "./traefik.yml:/traefik.yml:ro"
+      - "./users_credentials:/users_credentials:ro"
+
 
 networks:
   default:

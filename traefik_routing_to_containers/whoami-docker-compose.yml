@@ -9,6 +9,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.entrypoints=web"
       - "traefik.http.routers.whoami.rule=Host(`whoami.$MY_DOMAIN`)"
+      - "traefik.http.routers.whoami.middlewares=auth-middleware"
+      - "traefik.http.middlewares.auth-middleware.basicauth.usersfile=/users_credentials"
 
 networks:
   default:
