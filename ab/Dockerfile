@@ -1,9 +1,6 @@
-FROM alpine:latest
+FROM alpine
 
-RUN apk --no-cache add \
-        apache2-ssl \
-        apache2-utils\
-        ca-certificates \
-        htop
+ENV TERM linux
+RUN apk --no-cache add apache2-utils
 
-ENTRYPOINT [ "ab" ]        
+ENTRYPOINT ["/usr/bin/ab"]
