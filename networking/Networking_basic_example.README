@@ -1,0 +1,23 @@
+# Start an nginx container, give it the name 'mynginx' and run in the background
+$ docker run --rm --name mynginx --detach nginx
+
+# Get the IP address of the container
+$ docker inspect mynginx | grep IPAddress
+            "IPAddress": "172.17.0.2",
+
+# Or, if you have 'jq' installed - here's a funky way to get the IP address
+$ sudo docker inspect mynginx | jq '.[].NetworkSettings.Networks.bridge.IPAddress'
+"172.17.0.2"
+
+# Run busybox (a utility container). It will join the bridge network
+$ docker run -it busybox sh
+
+# Fetch the nginx homepage by using the container's IP address
+busybox$ wget -q -O - 172.17.0.2:80
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+
+# Voila! The nginx homepage!
